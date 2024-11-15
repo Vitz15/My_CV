@@ -11120,7 +11120,7 @@ p {
   border-radius: 100px;
 }
 
-.service-card {
+.language-card {
   position: relative;
   min-height: 270px;
   border: 1px solid #dee2e6;
@@ -11128,11 +11128,11 @@ p {
   border-radius: 3px;
 }
 
-.service-card .body {
+.language-card .body {
   padding: 10px;
 }
 
-.service-card .body img.icon {
+.language-card .body img.icon {
   margin-top: 40px;
   width: 55px;
   margin-bottom: 25px;
@@ -11141,13 +11141,13 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .service-card .body img.icon {
+  .language-card .body img.icon {
     -webkit-transition: none;
     transition: none;
   }
 }
 
-.service-card .body .subtitle {
+.language-card .body .subtitle {
   position: absolute;
   bottom: -100%;
   opacity: 0;
@@ -11157,19 +11157,19 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .service-card .body .subtitle {
+  .language-card .body .subtitle {
     -webkit-transition: none;
     transition: none;
   }
 }
 
-.service-card:hover .body img.icon {
+.language-card:hover .body img.icon {
   margin-top: 5px;
   width: 45px;
   margin-bottom: 10px;
 }
 
-.service-card:hover .body .subtitle {
+.language-card:hover .body .subtitle {
   bottom: 7px;
   opacity: 1;
   visibility: visible;
@@ -11237,7 +11237,7 @@ p {
   .portfolio-card {
     margin-bottom: 30px;
   }
-  .service-card {
+  .language-card {
     margin-bottom: 30px;
   }
 }

@@ -1,14 +1,11 @@
 import img1 from "./assets/imgs/AdminPuskesmas.png";
 import img2 from "./assets/imgs/Sistem Apotek.png";
 import img3 from "./assets/imgs/LibraryAdmin.png";
-import img4 from "./assets/imgs/C++.png";
-import img5 from "./assets/imgs/Csharp_Logo.png";
-import img6 from "./assets/imgs/Python.jpg";
-import img7 from "./assets/imgs/javascript.png";
 import Navbar from "./components/Navbar";
 import "font-awesome/css/font-awesome.min.css";
 import Header from "./components/Header";
 import About from "./components/About";
+import Language from "./components/Language";
 const App = () => {
   return (
     <div>
@@ -20,86 +17,9 @@ const App = () => {
       {/* about section */}
       <About />
       {/* end of about section */}
-      {/* service section */}
-      <section className="section" id="service">
-        <div className="container text-center">
-          <p className="section-subtitle">My Favorite</p>
-          <h6 className="section-title mb-6">Programming Languages</h6>
-          {/* row */}
-          <div className="row">
-            <div className="col-md-6 col-lg-3">
-              <div className="service-card">
-                <div className="body">
-                  <img
-                    src={img4}
-                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                    className="icon"
-                  />
-                  <h6 className="title">C++</h6>
-                  <p className="subtitle">
-                    Object-oriented programming languages that are widely used
-                    in software development, particularly in applications that
-                    require high performance and efficiency.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="service-card">
-                <div className="body">
-                  <img
-                    src={img5}
-                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                    className="icon"
-                  />
-                  <h6 className="title">C#</h6>
-                  <p className="subtitle">
-                    A modern programming language commonly used for software
-                    development, specifically designed to develop Windows-based
-                    applications efficiently.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="service-card">
-                <div className="body">
-                  <img
-                    src={img6}
-                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                    className="icon"
-                  />
-                  <h6 className="title">Python</h6>
-                  <p className="subtitle">
-                    One of the programming languages that is easy to use and
-                    very simple for both experienced and new programmers to
-                    understand and learn.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6 col-lg-3">
-              <div className="service-card">
-                <div className="body">
-                  <img
-                    src={img7}
-                    alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
-                    className="icon"
-                  />
-                  <h6 className="title">Java Script</h6>
-                  <p className="subtitle">
-                    One of the programming languages used for creating
-                    interactive and dynamic websites. It can be used on both the
-                    client-side and server-side.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* end of row */}
-        </div>
-      </section>
-      {/* end of service section */}
+      {/* language section */}
+      <Language />
+      {/* end of language section */}
       {/* portfolio section */}
       <section className="section" id="portfolio">
         <div className="container text-center">
