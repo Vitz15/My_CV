@@ -12299,3 +12299,8 @@ pre .code {
   font-weight: 600;
   color: #7f3ff2;
 }
+
+/* About */
+html {
+  scroll-behavior: smooth;
+}

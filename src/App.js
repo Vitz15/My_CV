@@ -8,6 +8,7 @@ import img7 from "./assets/imgs/javascript.png";
 import Navbar from "./components/Navbar";
 import "font-awesome/css/font-awesome.min.css";
 import Header from "./components/Header";
+import About from "./components/About";
 const App = () => {
   return (
     <div>
@@ -17,31 +18,7 @@ const App = () => {
       <Header />
       {/* end of page header */}
       {/* about section */}
-      <section className="section pt-0" id="about">
-        {/* container */}
-        <div className="container text-center">
-          {/* about wrapper */}
-          <div className="about">
-            <div className="about-caption">
-              <br />
-              <p className="section-subtitle">Who Am I ?</p>
-              <h2 className="section-title mb-3">About Me</h2>
-              <p className="justify">
-                My name is Jonathan Vito Taufik. I am currently studying at
-                Universitas Klabat (UNKLAB), Faculty of Computer Science, and I
-                live in Arimadidi. My interests and expertise focus on backend
-                development, where I have experience in building and managing
-                efficient systems that support the needs of modern applications.
-                I am always eager to learn the latest technologies and enjoy
-                collaborating in teams to create valuable technological
-                solutions.
-              </p>
-            </div>
-          </div>
-          {/* end of about wrapper */}
-        </div>
-        {/* end of container */}
-      </section>{" "}
+      <About />
       {/* end of about section */}
       {/* service section */}
       <section className="section" id="service">
