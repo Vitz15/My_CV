@@ -12685,10 +12685,10 @@ pre .code {
 
 /* Container to hold navbar content */
 .navbar-container {
-  max-width: 1280px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: flex-end; /* Align items to the right */
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -12700,7 +12700,7 @@ pre .code {
   text-transform: uppercase;
   color: #7f3ff2;
   text-decoration: none;
-  margin-right: auto; /* Push the brand to the left */
+  margin-right: auto;
   transition: color 0.3s ease;
 }
 
@@ -12708,7 +12708,6 @@ pre .code {
   color: #7f3ff2;
 }
 
-/* Navigation Links Container */
 .nav-links {
   display: flex;
   gap: 16px;
@@ -12739,7 +12738,7 @@ pre .code {
 @media (max-width: 768px) {
   .navbar-container {
     flex-direction: column;
-    align-items: flex-end; /* Align links to the right on smaller screens */
+    align-items: flex-end;
     padding: 10px;
   }
 
