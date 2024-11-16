@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import About from "./components/About";
 import Language from "./components/Language";
 import Portfolio from "./components/Portfolio";
+import Skill from "./components/Skills";
 const App = () => {
   return (
     <div>
@@ -21,50 +22,34 @@ const App = () => {
       {/* portfolio section */}
       <Portfolio />
       {/* end of blog section */}
+      {/* my-skill section */}
+      <Skill />
+      {/* end of blog section */}
       {/* contact section */}
       <section className="section" id="contact">
         <div className="container text-center">
           <p className="section-subtitle">How can you communicate?</p>
-          <h6 className="section-title mb-5">Contact Me</h6>
-          {/* contact form */}
-          <form action className="contact-form col-md-10 col-lg-8 m-auto">
-            <div className="form-row">
-              <div className="form-group col-sm-6">
-                <input
-                  type="text"
-                  size={50}
-                  className="form-control"
-                  placeholder="Your Name"
-                  required
-                />
-              </div>
-              <div className="form-group col-sm-6">
-                <input
-                  type="email"
-                  className="form-control"
-                  placeholder="Enter Email"
-                  requried
-                />
-              </div>
-              <div className="form-group col-sm-12">
-                <textarea
-                  name="comment"
-                  id="comment"
-                  rows={6}
-                  className="form-control"
-                  placeholder="Write Something"
-                  defaultValue={""}
-                />
-              </div>
-              <div className="form-group col-sm-12 mt-3">
-                <input
-                  type="submit"
-                  defaultValue="Send Message"
-                  className="btn btn-outline-primary rounded"
-                />
-              </div>
-            </div>
-          </form>
+          <h6 className="section-title mb-3">Contact Me</h6>
+          <p className="small-container">
+            Thank you for visiting my portfolio! if you're interested in working
+            together, have questions, or just want to say hello, please feel
+            free to reach out. I'm open to new project, collaborations, or
+            discussions about my work.
+            <br />
+            <br />
+            <p>
+              <i
+                className="fas fa-map-marker-alt"
+                style={{ marginRight: "15px" }}
+              />
+              Airmadidi, Minahasa Utara, Sulawesi utara <br />
+              <i className="fas fa-phone" style={{ marginRight: "15px" }} />
+              08998332906 <br />
+              <i className="fas fa-envelope" style={{ marginRight: "15px" }} />
+              vitojonathan1515@gmail.com <br />
+            </p>
+          </p>
+
           {/* end of contact form */}
         </div>
         {/* end of container */}
