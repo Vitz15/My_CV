@@ -1,6 +1,16 @@
 import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const Navbar = () => {
+  const [navbar, setNavbar] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const navbarRef = ref(db, "navbar");
+    onValue(navbarRef, (snapshot) => {
+      const data = snapshot.val();
+      setNavbar(data);
+    });
+  }, []);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleScroll = () => {
@@ -25,19 +35,19 @@ const Navbar = () => {
         {/* Navigation Links */}
         <div className="nav-links">
           <a href="#home" className="nav-link">
-            Home
+            {navbar.nav1}
           </a>
           <a href="#about" className="nav-link">
-            About
+            {navbar.nav2}
           </a>
           <a href="#portfolio" className="nav-link">
-            Portfolio
+            {navbar.nav3}
           </a>
           <a href="#my-skill" className="nav-link">
-            Skills
+            {navbar.nav4}
           </a>
           <a href="#contact" className="nav-link">
-            Contact
+            {navbar.nav5}
           </a>
         </div>
       </div>
