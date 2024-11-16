@@ -1,30 +1,31 @@
-import React from "react";
-import img4 from "../../assets/imgs/C++.png";
-import img5 from "../../assets/imgs/Csharp_Logo.png";
-import img6 from "../../assets/imgs/Python.jpg";
-import img7 from "../../assets/imgs/javascript.png";
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 const Language = () => {
+  const [language, setLanguage] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const languageRef = ref(db, "language");
+    onValue(languageRef, (snapshot) => {
+      const data = snapshot.val();
+      setLanguage(data);
+    });
+  }, []);
   return (
     <section className="section" id="language">
       <div className="container text-center">
-        <p className="section-subtitle">My Favorite</p>
-        <h6 className="section-title mb-6">Programming Languages</h6>
+        <p className="section-subtitle">{language.subtitle1}</p>
+        <h6 className="section-title mb-6">{language.title1}</h6>
         {/* row */}
         <div className="row">
           <div className="col-md-6 col-lg-3">
             <div className="language-card">
               <div className="body">
                 <img
-                  src={img4}
-                  alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                  src={`data:image/png;base64,${language.image1}`}
                   className="icon"
                 />
-                <h6 className="title">C++</h6>
-                <p className="subtitle">
-                  Object-oriented programming languages that are widely used in
-                  software development, particularly in applications that
-                  require high performance and efficiency.
-                </p>
+                <h6 className="title">{language.title2}</h6>
+                <p className="subtitle">{language.subtitle2}</p>
               </div>
             </div>
           </div>
@@ -32,16 +33,11 @@ const Language = () => {
             <div className="language-card">
               <div className="body">
                 <img
-                  src={img5}
-                  alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                  src={`data:image/png;base64,${language.image2}`}
                   className="icon"
                 />
-                <h6 className="title">C#</h6>
-                <p className="subtitle">
-                  A modern programming language commonly used for software
-                  development, specifically designed to develop Windows-based
-                  applications efficiently.
-                </p>
+                <h6 className="title">{language.title3}</h6>
+                <p className="subtitle">{language.subtitle3}</p>
               </div>
             </div>
           </div>
@@ -49,16 +45,11 @@ const Language = () => {
             <div className="language-card">
               <div className="body">
                 <img
-                  src={img6}
-                  alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                  src={`data:image/png;base64,${language.image3}`}
                   className="icon"
                 />
-                <h6 className="title">Python</h6>
-                <p className="subtitle">
-                  One of the programming languages that is easy to use and very
-                  simple for both experienced and new programmers to understand
-                  and learn.
-                </p>
+                <h6 className="title">{language.title4}</h6>
+                <p className="subtitle">{language.subtitle4}</p>
               </div>
             </div>
           </div>
@@ -66,16 +57,11 @@ const Language = () => {
             <div className="language-card">
               <div className="body">
                 <img
-                  src={img7}
-                  alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                  src={`data:image/png;base64,${language.image4}`}
                   className="icon"
                 />
-                <h6 className="title">Java Script</h6>
-                <p className="subtitle">
-                  One of the programming languages used for creating interactive
-                  and dynamic websites. It can be used on both the client-side
-                  and server-side.
-                </p>
+                <h6 className="title">{language.title5}</h6>
+                <p className="subtitle">{language.subtitle5}</p>
               </div>
             </div>
           </div>

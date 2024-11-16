@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const About = () => {
+  const [about, setAbout] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const aboutRef = ref(db, "about");
+    onValue(aboutRef, (snapshot) => {
+      const data = snapshot.val();
+      setAbout(data);
+    });
+  }, []);
   return (
     <section className="section pt-0" id="about">
       {/* container */}
@@ -9,17 +19,9 @@ const About = () => {
         <div className="about">
           <div className="about-caption">
             <br />
-            <p className="section-subtitle">Who Am I ?</p>
-            <h2 className="section-title mb-3">About Me</h2>
-            <p className="justify">
-              My name is Jonathan Vito Taufik. I am currently studying at
-              Universitas Klabat (UNKLAB), Faculty of Computer Science, and I
-              live in Arimadidi. My interests and expertise focus on backend
-              development, where I have experience in building and managing
-              efficient systems that support the needs of modern applications. I
-              am always eager to learn the latest technologies and enjoy
-              collaborating in teams to create valuable technological solutions.
-            </p>
+            <p className="section-subtitle">{about.subtitle}</p>
+            <h2 className="section-title mb-3">{about.title}</h2>
+            <p className="justify">{about.description}</p>
           </div>
         </div>
         {/* end of about wrapper */}
