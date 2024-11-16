@@ -1,16 +1,22 @@
-import React from "react";
-
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 const Contact = () => {
+  const [contact, setContact] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const contactRef = ref(db, "contact");
+    onValue(contactRef, (snapshot) => {
+      const data = snapshot.val();
+      setContact(data);
+    });
+  }, []);
   return (
     <section className="section" id="contact">
       <div className="container text-center">
-        <p className="section-subtitle">How can you communicate?</p>
-        <h6 className="section-title mb-3">Contact Me</h6>
+        <p className="section-subtitle">{contact.subtitle}</p>
+        <h6 className="section-title mb-3">{contact.title}</h6>
         <p className="small-container">
-          Thank you for visiting my portfolio! if you're interested in working
-          together, have questions, or just want to say hello, please feel free
-          to reach out. I'm open to new project, collaborations, or discussions
-          about my work.
+          {contact.description}
           <br />
           <br />
           <p>
@@ -18,11 +24,11 @@ const Contact = () => {
               className="fas fa-map-marker-alt"
               style={{ marginRight: "15px" }}
             />
-            Airmadidi, Minahasa Utara, Sulawesi utara <br />
+            {contact.place} <br />
             <i className="fas fa-phone" style={{ marginRight: "15px" }} />
-            08998332906 <br />
+            {contact.number} <br />
             <i className="fas fa-envelope" style={{ marginRight: "15px" }} />
-            vitojonathan1515@gmail.com <br />
+            {contact.email} <br />
           </p>
         </p>
       </div>

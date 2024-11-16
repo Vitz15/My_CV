@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { getDatabase, ref, onValue } from "firebase/database";
 
 const skills = [
   { name: "C#", percentage: 85 },
@@ -10,6 +11,15 @@ const skills = [
 ];
 
 const Skill = () => {
+  const [skills1, setSkills1] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const skills1Ref = ref(db, "skills1");
+    onValue(skills1Ref, (snapshot) => {
+      const data = snapshot.val();
+      setSkills1(data);
+    });
+  }, []);
   const [inView, setInView] = useState(false);
   const [progress, setProgress] = useState(
     skills.reduce((acc, skill) => {
@@ -70,16 +80,16 @@ const Skill = () => {
   return (
     <section className="section" id="my-skill">
       <div className="container text-center">
-        <p className="section-subtitle">What I Am Good At?</p>
-        <h6 className="section-title mb-6">My Skills</h6>
+        <p className="section-subtitle">{skills1.subtitle1}</p>
+        <h6 className="section-title mb-6">{skills1.title}</h6>
         {/* row */}
         <div className="row">
           {skills.map((skill, index) => (
             <div key={index} className="col-md-3 mb-4">
               <div className={`skill-circle ${inView ? "rotate" : ""}`}>
                 <CircularProgressbar
-                  value={progress[skill.name]} 
-                  text={`${progress[skill.name]}%`} 
+                  value={progress[skill.name]}
+                  text={`${progress[skill.name]}%`}
                   styles={buildStyles({
                     textColor: "#333",
                     pathColor: "#007bff",

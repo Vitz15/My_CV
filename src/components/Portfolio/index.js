@@ -1,29 +1,36 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getDatabase, ref, onValue } from "firebase/database";
 import img1 from "../../assets/imgs/AdminPuskesmas.png";
 import img2 from "../../assets/imgs/Sistem Apotek.png";
 import img3 from "../../assets/imgs/LibraryAdmin.png";
 
 const Portfolio = () => {
+  const [portfolio, setPortfolio] = useState({});
+  useEffect(() => {
+    const db = getDatabase();
+    const portfolioRef = ref(db, "portfolio");
+    onValue(portfolioRef, (snapshot) => {
+      const data = snapshot.val();
+      setPortfolio(data);
+    });
+  }, []);
   return (
     <section className="section" id="portfolio">
       <div className="container text-center">
-        <p className="section-subtitle">What I Did ?</p>
-        <h6 className="section-title mb-6">Portfolio</h6>
+        <p className="section-subtitle">{portfolio.subtitle1}</p>
+        <h6 className="section-title mb-6">{portfolio.title}</h6>
         {/* row */}
         <div className="row">
           <div className="col-md-4">
             <a href="#" className="portfolio-card">
               <img
-                src={img2}
+                src={`data:image/png;base64,${portfolio.image1}`}
                 className="portfolio-card-img"
-                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
               />
               <span className="portfolio-card-overlay">
                 <span className="portfolio-card-caption">
-                  <h4>Pharmacy System</h4>
-                  <p className="font-weight-normal">
-                    Pharmacy system with a comprehensive set of features.
-                  </p>
+                  <h4>{portfolio.subtitle3}</h4>
+                  <p className="font-weight-normal">{portfolio.description2}</p>
                 </span>
               </span>
             </a>
@@ -32,16 +39,12 @@ const Portfolio = () => {
             <a href="#" className="portfolio-card">
               <img
                 className="portfolio-card-img"
-                src={img1}
-                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                src={`data:image/png;base64,${portfolio.image2}`}
               />
               <span className="portfolio-card-overlay">
                 <span className="portfolio-card-caption">
-                  <h4>Desktop UI for Puskesmas</h4>
-                  <p className="font-weight-normal">
-                    Comprehensive UI for Puskesmas with a complete set of
-                    features.
-                  </p>
+                  <h4>{portfolio.subtitle2}</h4>
+                  <p className="font-weight-normal">{portfolio.description1}</p>
                 </span>
               </span>
             </a>
@@ -50,16 +53,12 @@ const Portfolio = () => {
             <a href="#" className="portfolio-card">
               <img
                 className="portfolio-card-img"
-                src={img3}
-                alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page"
+                src={`data:image/png;base64,${portfolio.image3}`}
               />
               <span className="portfolio-card-overlay">
                 <span className="portfolio-card-caption">
-                  <h4>Desktop UI for Library</h4>
-                  <p className="font-weight-normal">
-                    Comprehensive UI for Library with a complete set of
-                    features.
-                  </p>
+                  <h4>{portfolio.subtitle4}</h4>
+                  <p className="font-weight-normal">{portfolio.description3}</p>
                 </span>
               </span>
             </a>
