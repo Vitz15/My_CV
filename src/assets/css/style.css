@@ -12735,6 +12735,32 @@ pre .code {
   font-weight: 600;
   color: #7f3ff2;
 }
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .nav-link {
+    font-size: 14px;
+    text-align: left;
+    padding: 5px 0;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 12px;
+  }
+}
 
 /* About */
 html {
