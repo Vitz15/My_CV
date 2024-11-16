@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { getDatabase, ref, onValue } from "firebase/database";
-import img1 from "../../assets/imgs/AdminPuskesmas.png";
-import img2 from "../../assets/imgs/Sistem Apotek.png";
-import img3 from "../../assets/imgs/LibraryAdmin.png";
 
 const Portfolio = () => {
   const [portfolio, setPortfolio] = useState({});
